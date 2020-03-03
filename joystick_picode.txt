@@ -1,0 +1,70 @@
+import pygame
+import serial
+
+arduinoPath = '/dev/ttyACM0'
+
+#ser = serial.Serial(arduinoPath, 9600)
+
+#The following line goes at the end of the code
+#ser.write(output.encode('utf-8'))
+
+
+pygame.init()
+
+done = False
+
+clock = pygame.time.Clock() #Used to determine output rate
+
+pygame.joystick.init()
+
+
+# ------------Main Program Loop------------
+
+while done == False:
+
+    for event in pygame.event.get(): #User did something
+        if event.type == 9:
+            done=True
+    
+    joystick_count = pygame.joystick.get_count()
+    
+    for i in range(joystick_count):
+        joystick = pygame.joystick.Joystick(i)
+        joystick.init()
+        
+        name = joystick.get_name()
+        
+        axes = joystick.get_numaxes()
+        
+        for i in range(axes):
+            axis = joystick.get_axis(i)
+            
+        JSY = joystick.get_axis(1) #y-axis on the left joystick
+        JSX = joystick.get_axis(0) #x-axis on the left joystick
+        B = joystick.get_button(0) #B button
+        X = joystick.get_button(3) #X button
+        ZR = joystick.get_button(7) #ZR button
+        ZL = joystick.get_button(6) #ZL button
+        
+        direction = "F" #indicates direction of joystick
+        magnitude = "%.3f" % max(abs(JSX), abs(JSY)) #indicates magnitude
+        #magnitude is absolute-valued, set to 3 decimal places and cast as string
+        
+        if abs(JSY) >= abs(JSX):
+            if JSY <= 0:
+                direction = "F"
+           else:
+                direction = "B"
+        else:
+            if JSX < 0:
+                direction = "L"
+            else:
+                direction = "R"
+                
+        output = direction + magnitude + str(B) + str(X) + str(ZR) #+ str(ZL)
+        
+        print(output)
+        
+        #ser.write(output.encode('utf-8'))
+        
+pygame.quit()
