@@ -1,0 +1,16 @@
+Useful Links:
+
+Arduino:
+
+Brief Description				Link
+Adafruit Motorshield v2 tutorial for DC Motors	https://learn.adafruit.com/adafruit-motor-shield-v2-for-arduino/using-dc-motors
+Adafruit Motorshield v2 library download	https://github.com/adafruit/Adafruit_Motor_Shield_V2_Library 
+Adafruit Motorshield v1 schematic		https://hackster.imgix.net/uploads/attachments/899521/l293d-teaser-800x600_oxXNH4Z9L9.jpg?auto=compress%2Cformat&w=680&h=510&fit=max
+Arduino Uno pinout diagram			https://i.pinimg.com/originals/5e/68/e2/5e68e282ab13707dd374dca8b6add019.jpg
+Arduino Serial Read reference			https://www.arduino.cc/reference/en/language/functions/communication/serial/read/
+Arduino Software Download			https://www.arduino.cc/en/Main/Software
+
+
+Rasperry Pi:
+
+Brief Description				Link
